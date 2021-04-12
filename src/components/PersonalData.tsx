@@ -8,7 +8,6 @@ interface Interface {
 }
 
 export default ({ person, customStyle }: Interface) => {
-  const IMAGE = person.imageUrl;
   return (
     <View style={[styles.container, customStyle]}>
       <Text style={styles.name}>{person.name}</Text>
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
   },
   image: {
     borderWidth: 1,
-    width: 80,
-    height: 100,
+    width: 200,
+    height: 200,
   },
 });

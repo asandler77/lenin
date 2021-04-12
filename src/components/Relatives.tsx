@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet, ViewStyle, useState, TouchableOpacity } from 'react-native';
-import { PersonInfo } from '../common/types';
 import  { Transition, Transitioning } from 'react-native-reanimated';
+import {PersonInfo} from "../common/types";
 
 interface Props {
-  relatives?: any;
+  relatives?: PersonInfo[];
   customStyle?: ViewStyle;
 }
 
@@ -18,33 +18,14 @@ const transition = (
 export default ({ relatives, customStyle }: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const ref = React.useRef();
-  // const animatedController = React.useRef(new Animated.Value(0)).current;
-  // const [relativesSectionHeight, setRelativesSectionHeight] = useState(0);
-
-  // const bodyHeight = animatedController.interpolate({
-  //   inputRange: [0, 1],
-  //   outputRange: [0, 100],
-  // });
-  //
-  // const prepareAnimation = (toValue: number) => {
-  //   return Animated.timing(animatedController, {
-  //     duration: 3000,
-  //     toValue: toValue,
-  //     easing: Easing.linear,
-  //   });
-  // };
 
   const toggleExpand = () => {
-    // let animation;
-    // if (isOpen) {
-    //   animation = prepareAnimation(0);
-    // } else {
-    //   animation = prepareAnimation(1);
-    // }
-    // animation && animation.start();
     ref.current.animateNextTransition();
     setIsOpen(!isOpen);
   };
+
+  const showOrHide = isOpen ? 'Hide' : 'Show';
+  const titleColor = isOpen ? 'red' : 'green';
 
   return (
     <Transitioning.View
@@ -55,7 +36,7 @@ export default ({ relatives, customStyle }: Props) => {
         onPress={() => {
           toggleExpand();
         }}>
-        <Text style={styles.names}>Expand Relatives</Text>
+        <Text style={[styles.names, {color: titleColor}]}>{showOrHide} Relatives</Text>
       </TouchableOpacity>
       {isOpen && (
         <View style={[styles.relatives]}>

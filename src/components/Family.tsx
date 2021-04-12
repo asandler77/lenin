@@ -7,7 +7,7 @@ const persons = [
     key: '1',
     name: 'Vladimir',
     sureName: 'Lenin',
-    imageUrl: 'https://commons.wikimedia.org/wiki/File:I_N_Ulyanov_(cropped)_(cropped).jpg',
+    imageUrl: '../assets/images/Lenin.jpeg',
     relatives: {
       father: 'Ilia Ulianov',
       mother: 'Luba Ulianov',
@@ -17,7 +17,7 @@ const persons = [
     key: '2',
     name: 'Ilia',
     sureName: 'Ulianov',
-    imageUrl: 'https://commons.wikimedia.org/wiki/File:I_N_Ulyanov_(cropped)_(cropped).jpg',
+    imageUrl: '../assets/images/IlliaUlianov.jpeg',
     relatives: {
       father: 'kolia ivanov',
       mother: 'anna ivanova',
